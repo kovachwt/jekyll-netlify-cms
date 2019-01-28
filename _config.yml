@@ -1,71 +1,104 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+title: "#skopjehacklab"
+description: "#SkopjeHacklab website"
+baseurl: "/"
+url: "https://skopjehacklab.github.io" # the base hostname & protocol e.g. http://example.com
 
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: Jekyll Netlify CMS
-email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
-  This is the basic Jekyll starter site, with Netlify CMS integrated and using
-  Netlify Identity for authentication.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+# Links
+facebook: "https://facebook.com/skopjehacklab"
+twitter: "https://twitter.com/2cmk"
+github: "https://github.com/skopjehacklab"
+mailing_list: "https://lists.softver.org.mk/listinfo/ossm-members"
+IRC: "https://webchat.freenode.net/?channels=lugola"
+LOGS: "https://irc.softver.org.mk/#/lugola"
+
+permalink: pretty
+
+# Neighbors
+neighbors:
+  - name: "Prishtina Hackerspace in Prishtina, Kosovo"
+    url: "http://www.prishtinahackerspace.org/"
+  - name: "Hacklab Belgrade in Belgrade, Serbia"
+    url: "https://oosm.org/"
+  - name: "OpenLabs Albania in Tirana, Albania"
+    url: "https://openlabs.cc/en/"
+  - name: "Bonevet Makerspace in Gjakova, Kosovo"
+    url: "https://www.bonevet.org/"
+  - name: "Init Lab in Sofia, Bulgaria"
+    url: "https://initlab.org/"
+  - name: "Hackerspace.gr in Athens, Greece"
+    url: "https://www.hackerspace.gr"
+
+# NavBar
+navigation:
+  - title: "Дома"
+    url: "/"
+  - title: "Приклучи се"
+    url: "/members/"
+  - title: "Настани"
+    url: "/events/"
+  - title: "Блог"
+    url: "/blog/"
+  - title: "Донации"
+    url: "/donations/"
+  - title: "Вики"
+    url: "https://wiki.spodeli.org/"
+  - title: "ЧПП"
+    url: "/faq/"
+
+
+# In order for a new FAQ to be rendered
+# you need to rebuild the website
+faq:
+  - title: "Зошто хаклаб?"
+    description: "За да научиш нови работи од светот на софтверот и хардверот, да најдеш помош за доразвивање
+                на некои од твоите идеи што мислиш дека никогаш нема да ги реализираш, да ти се средат
+                проблемите во животот со GNU/Linux дистрибуциите, да јадеш наполитанки додека не пукнеш, да
+                дознаеш како да се заштитиш на интернет и да ги научиш правата кои ги поседуваш додека
+                сурфаш, слободно да пиеш филтер кафе, да добиеш добри насоки за Gnome Women Outreach
+                програмата, да добиеш помош за Google Summer Of Codе и да правиш многу други
+                интересни работи. <br> <br>
+    
+                Идејата е сите кои се заинтересирани за слободен софтвер, GNU/Linux, но и општо
+                технологија, компјутери, хакирање (не кракирање), мрежи, сервери, електроника, слободна
+                култура и општество, геџети, роботи итн., да може да се соберат за да споделат знаења и
+                искуства, да дискутираат и експериментираат."
+  - title: "Дали треба да бидам член на КИКА за да го посетувам хаклабот?"
+    description: "Не. Хаклабот е отворено место и е добредојден секој кој сака да се приклучи во тековните активности или да предложи нови."
+  - title: "Како да станам член? Колку кошта чланарината?"
+    description: "За да станеш член на хаклабот, треба да бидеш над 16 години и да пратиш мејл на <a href='mailto:info@slobodensoftver.org.mk'>info@slobodensoftver.org.mk</a>. Членарината се собира од 20-ти до 27-ми во месецот. Парите се трошат за кирија и функционирање на хаклабот."
+  - title: "Не сакам да бидам член, но сакам да му помогнам на хаклабот. Што можам да направам?"
+    description: "Дојди, дружи се, направи настан, сподели знаење, кажи им го хаклабот на твоите пријател."
+  - title: "Би сакал да донирам работи кои не ги користам, што можам да ви донирам?"
+    description: "Во КИКА постојано се трошат LED диоди, отпорници, микроконтролери, струја, компјутери, наполитанки, матични плочи, хард дискови и РАМ меморија со кои се изработуваат најразлични проекти. На КИКА и треба и инфраструктура па ако имате осцилоскоп, столчиња, маси, полици, фотељи, алат, електронски компоненти и сл. би биле добредојдени. Пополнете го формуларот докулку сакате да донирате опрема и ќе ве контактираме во најбрз можен рок."
+  - title: "Дали треба да бидам член за да доаѓам на настани или курсеви?"
+    description: "Не, настаните се бесплатни и отворени за било кој, додека курсевите се наплаќаат каде што дел од парите одат кај предавачот, останатиот како донација за хаклаб."
+  - title: "Кога е отворен хаклабот?"
+    description: "Најлесно да провериш е да го посетиш сајтот: <a href='https://status.spodeli.org'>status.spodeli.org</a>"
+  - title: "Дали можам да доаѓам во хаклабот иако не сум техничко лице?"
+    description: "Секако! Во хаклабот се собираат луѓе од најразлични области."
+  # - title: "Кои се бенефитите ако сум член?"
+  #   description: "A8"
+  - title: "Како да организирам настан во хаклаб?"
+    description: "За да организираш настан најпрвин мора да провериш дали терминот е слободен. Потоа да објавиш настан кој ќе има основни информации
+    како датум, време и инфо за настанот."
+  # - title: "Колку треба да сум стар за да станам член на хаклабот?"
+  #   description: ""
 
 # Build settings
-theme: minima
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
 
-# minima theme settings
-show_excerpts: false # set to true to show excerpts on the homepage
+# Blog pagination
+paginate: 5 # Display only 5 posts per page
+paginate_path: "/blog/:num/"
 
-# Minima date format
-# refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
-minima:
-  date_format: "%b %-d, %Y"
+# SASS
+sass:
+  sass_dir: assets/css
 
-# If you want to link only specific pages in your header, uncomment
-# this and add the path to the pages in order as they should show up
-#header_pages:
-# - about.html
-
-# social links
-twitter_username: jekyllrb
-github_username:  jekyll
-rss: rss
-# dribbble_username: jekyll
-# facebook_username: jekyll
-# flickr_username: jekyll
-# instagram_username: jekyll
-# linkedin_username: jekyll
-# pinterest_username: jekyll
-# youtube_username: jekyll
-# googleplus_username: +jekyll
-
-# Mastodon instances
-# mastodon:
-# - username: jekyll
-#   instance: example.com
-# - username: jekyll2
-#   instance: example.com
-
-
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+# Collections
+collections:
+  events:
+    output: true

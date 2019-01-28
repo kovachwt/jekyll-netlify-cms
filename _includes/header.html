@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="{{ site.url }}"><img src="/assets/svg/kika-logo-symbol-only-c2b.svg"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            {% for link in site.navigation %}
+                {% assign class = nil %}
+
+                {% if page.url == link.url %}
+                    {% assign class = 'active' %}
+                {% elsif page.url != '/' and page.url == link.url %}
+                    {% assign class = 'active' %}
+                {% endif %}
+
+                <li class="nav-item {{ class }}">
+                    <a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <span class="navbar-text"></span>
+    </div>
+</nav>

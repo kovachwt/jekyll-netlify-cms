@@ -1,79 +1,111 @@
-[![](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/netlify/netlifycms)
+# hackerspace
+Ова репо го содржи статичниот сајт на хаклабот КИКА којшто е напишан со помош на [Jekyll](https://jekyllrb.com/) и [Liquid](https://shopify.github.io/liquid/).
 
-# Jekyll + Netlify CMS with Netlify Identity
+Вебсајтот содржи мал систем за настани (следен настан, минати настани), блог и информации.
 
-This is the basic Jekyll starter site, with Netlify CMS integrated and using Netlify Identity for
-authentication.
+![img](https://i.imgur.com/5cBIZjp.png)
 
-## Getting started
 
-Use our deploy button to get your own copy of the repository:
+## Зошто статичен сајт и зошто не WordPress?
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/jekyll-netlify-cms&stack=cms)
+GitHub нуди бесплатно хостирање на статични сајтови коишто се пишувани во Jekyll. Исто,
+статичните сајтови не користат backing services (на пример: датабази, мејл), при што на некој начин
+се безбедни од напади од видот на SQL injection и слично.
 
-This will setup everything needed for running the CMS:
+Сајтот сервира претходно генериран HTML према клиентот и тука завршува приказната.
 
-* A new repository in your GitHub account with the code
-* Full Continuous Deployment to Netlify's global CDN network
-* Control users and access with Netlify Identity
-* Manage content with Netlify CMS
+## Како функционира додавање настан или блог пост?
 
-The email address associated with your Netlify account will receive an email inviting you as an
-Identity user - click Accept in the email to set your new password, then navigate to `/admin` on
-your site to log in.
+Настаните и блог-постовите се обични [Markdown](https://en.wikipedia.org/wiki/Markdown) фајлови коишто се чуваат во папките `_events` и `_posts`, соодветно.
 
-Now you're all set, and you can start editing content!
+Секој фајл во папките `_events` и `_posts` треба да ги содржи следниве два дела:
+1. Детали за настанот или блог-постот од видот на: наслов, автор, датум...
+2. Содржина
 
-**Note:** if you switch the repo that was created to private, you'll need to regenerate your token,
-as the token generated using the deploy to Netlify button can only access public repositories. To
-regenerate your token, head to "Settings" in your Netlify site dashboard, go to the "Identity"
-section, then scroll to "Services" where you'll see an "Edit settings" button. Click that and you'll
-see a text link to "Generate access token in GitHub".
+### Детали за настанот или блог-постот
 
-## Local Development
+#### За настани:
 
-Clone this repository and run:
-
-```bash
-bundle install
-bundle exec jekyll server --watch
+```
+---
+title: "Учиме да лемиме!"
+author: "Некојси"
+layout: "event_post"
+start_date: "2019-02-01T14:00:00Z"
+end_date: "2019-02-01T15:00:00Z"
+---
 ```
 
-Now navigate to [localhost:4000](http://localhost:4000/) to preview the site, and
-[localhost:4000/admin](http://localhost:4000/admin) to log into the CMS.
+#### За блог-постови:
 
-## Authenticating without Netlify Identity
-
-Netlify provides basic OAuth so you can log in to Netlify CMS with your GitHub profile directly if
-you prefer not to use Netlify Identity. To do so, go to [the GitHub developer application
-screen](https://github.com/settings/developers) and **register new application**. The Authorization
-callback URL you'll need to enter is `https://api.netlify.com/auth/done`. 
-
-Once you've set up the application, go back to your Netlify site dashboard, navigate to the
-**Access** tab. Then fill in your new Client ID and Client Secret in the Github Authentication
-Provider section and check the **Enable GitHub** box.
-
-You'll then need to update the `backend` settings at the top of the `admin/config.yml` file in your
-site repo:
-
-```yaml
-backend:
-  name: github
-  repo: username/repo # your GitHub username and repository name, separated by a slash
-  branch: master # optional, default value is "master"
+```
+---
+title: "Како поминавме на НСНД19"
+author: "Некојси"
+layout: "blog_post"
+date: "2019-01-26T14:31:01Z"
+tags: "nsnd moravice"
+category: "other"
+---
 ```
 
-Now anybody with write access to your GitHub repository can log in at yoursite.netlify.com/admin
-and use the CMS.
+### Детали + содржина
+```
+---
+title: "Учиме да лемиме!"
+author: "Некојси"
+layout: "event_post"
+start_date: "2019-02-01T14:00:00Z"
+end_date: "2019-02-01T15:00:00Z"
+---
 
-**Enjoy!**
+Во петок ќе учиме да лемиме во #хаклаб! Секој што
+сака да научи е добредојден. :)
+```
 
-## Bug reports, feature requests, etc
+Делот со детали може да се пишува мануелно, но е мачно, за таа цел постои [алатката](https://skopjehacklab.github.io/alatkata) којашто ќе го убрза целиот процес на креирање настан или блог-пост.
 
-We love feedback, contributions, better documentation, tutorials, general comments,
-random hatemail, rants, love, crazy ideas, etc, etc!
+Сега кога ги имаш двата дела напишани во фајлот, следно е да му дадеш име. Името на фајлот треба да биде во следниов редослед: 
 
-Contact us at [any of netlify's normal channels](https://www.netlify.com/contact) and
-open issues or pull requests for Netlify CMS at [the netlify-cms GitHub
-repo](https://github.com/netlify/netlify-cms). If you need realtime help with setting up Netlify
-CMS, you can reach out in the [Netlify CMS Gitter](https://gitter.im/netlify/netlifycms).
+> YYYY-MM-DD-some-short-title.md
+
+Каде што:
+- YYYY - година
+- MM - месец
+- DD - ден
+
+Значи:
+
+#### Додавање на настан / блог-пост
+- Креирај сметка на github
+- Побарај пристап до skopjehacklab заедничкото репо
+- Влези во `_events` или `_posts` папката на ова репо
+- Кликни на `Create new file`
+- Посети ја [алатката](https://skopjehacklab.github.io/alatkata) и копирај ги деталите
+- Залепи ги деталите во фајлот и под нив напиши содржина
+- Дај му име на фајлот според горенаведеното
+- Напиши commit порака и commit-ни го фајлот
+
+## Како да се снајдам наоколу?
+
+- `_layouts` - секој настан или блог-пост има свој `layout` или распоред по кој што ќе се генерира HTML-от.
+- `_includes` - овде стојат фајловите во видот на `header.html` и `footer.html` коишто ги содржи секоја страница на вебсајтот.
+- `assets` - CSS, JS, слики, икони и слично.
+- `blog` - изгледот на блогот и страницата која ги сортира блог постовите по лепенки и категории.
+- `index.html` - главната страница
+- `donations.html` - страницата за донации
+- `events.html` - страницата за настани
+- `faq.html` - страницата за ЧПП.
+- `members.html` - страницата со информации за местото и чланарината
+
+#### Битно
+
+- `_posts` - овде стојат блог постовите
+- `_events` - овде стојат настаните
+- `_config.yml` - овде стои конфигурацијата на целиот вебсајт, мени за навигација, ЧПП, линкови, плагини и слично.
+
+Додавање на ЧПП или нов линк во менито за навигација се врши во фајлот `_config.yml`.
+
+## Како да пријавам баг или да додам нешто на сајтот?
+
+Багови и грешки во вебсајтот се пријавуваат во `Issues` на ова репо. За да поправиш грешка или додадеш нешто на сајтот (ова НЕ вклучува настан и блог-пост) отвори нов Pull Request и побарај некој да го провери.
